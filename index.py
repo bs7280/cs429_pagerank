@@ -38,12 +38,12 @@ class pagerank:
         # Modifying matrix to
         for i in range(0,len(matrix)):
             row_total = sum(matrix[i])
-            #if row_total == 0:
-            #    for j in range(0,len(matrix[i])):
-            #        matrix[i][j] = (1 - teleportation_rate)*(1.0/float(numbPages)) + teleportation_rate/float(numbPages)
-            #else:
-            for j in range(0,len(matrix[0])):
-                matrix[i][j] = (1.0 - teleportation_rate)*float(matrix[i][j]/row_total) + teleportation_rate/float(numbPages)
+            if row_total == 0:
+                for j in range(0,len(matrix[i])):
+                    matrix[i][j] = (1 - teleportation_rate)*(1.0/float(numbPages)) + teleportation_rate/float(numbPages)
+            else:
+                for j in range(0,len(matrix[0])):
+                    matrix[i][j] = (1.0 - teleportation_rate)*float(matrix[i][j]/row_total) + teleportation_rate/float(numbPages)
 
         # Get initial matrix P
         P = np.full((numbPages, 1), 1.0/float(numbPages))
@@ -65,14 +65,19 @@ class pagerank:
         final.sort(reverse=True, key=lambda x: x[0])
         final = final[:10]
 
-
-        for i,x in enumerate(final):
+        # printing out
+        for i,x in enumerate(final[:10]):
             print(str(i)+".","Doc Number", x[1]," -  Rank:", x[0], "")
 
 
-
+        # Writing to file
+        target = open(input_file.split(".")[0]+"_output.txt", 'w')
+        for i,x in enumerate(final):
+            target.write("Doc "+str(x[1])+" -  Rank: "+ str(x[0]))
+            target.write("\n")
+        target.close()
 
 
 
 pr = pagerank()
-pr.pagerank("test3.txt")
+pr.pagerank("test1.txt")

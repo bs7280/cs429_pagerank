@@ -1,0 +1,10 @@
+Doc 8 -  Rank: 0.146
+Doc 9 -  Rank: 0.143
+Doc 5 -  Rank: 0.139
+Doc 3 -  Rank: 0.135
+Doc 1 -  Rank: 0.127
+Doc 2 -  Rank: 0.095
+Doc 7 -  Rank: 0.086
+Doc 0 -  Rank: 0.081
+Doc 4 -  Rank: 0.024
+Doc 6 -  Rank: 0.024
