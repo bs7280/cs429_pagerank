@@ -81,3 +81,4 @@ class pagerank:
 
 pr = pagerank()
 pr.pagerank("test1.txt")
+print("Done")
